@@ -1,17 +1,51 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const BookList = () => {
+  return (
+    <>
+      <Book />
+      <Book />
+      <Book />
+    </>
+  );
+};
+
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
+
+const Image = () => (
+  <img
+    src="https://m.media-amazon.com/images/I/91I1KDnK1kL._SY466_.jpg"
+    alt="book"
+  />
 );
+const Title = () => (
+  <h2>
+    The Let Them Theory: A Life-Changing Tool That Millions of People Can't Stop
+    Talking About
+  </h2>
+);
+const Author = () => {
+  return <h4>Author: Mel Robbins</h4>;
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = createRoot(document.getElementById("root"));
+
+root.render(<BookList />);
+
+{
+  /*
+Explain the differences between functions Greetings that straight forward used an
+<h1> tag and the other one AnnyeongHaseyo that uses React.createElement("h1", {}, "Hello");
+When to use either of these? 
+Also in breakdown and explain each part of this code React.createElement("h1", {}, "Hello");
+*/
+}
