@@ -1,40 +1,39 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
+import "./index.css";
+
+const author = "Jordan Moore";
+const title = "Interesting Facts for curious Minds";
+const img = "/images/book-cover.jpg";
+
+const someFunc = (param1, param2) => {
+  console.log(param1, param2);
+};
+
+someFunc("job", "illegal");
+
 const BookList = () => {
   return (
-    <>
-      <Book />
-      <Book />
-      <Book />
-    </>
+    <section className="booklist">
+      <Book author={author} title={title} img={img} />
+      <Book author={author} title={title} img={img} />
+    </section>
   );
 };
 
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
   return (
-    <article>
-      <Image />
-      <Title />
-      <Author />
+    <article className="book">
+      <img src={props.img} alt={props.title} />
+      <h2>{props.title}</h2>
+      <h4>{props.author}</h4>
+      <p>{props.job}</p>
+      <p>{props.title}</p>
+      <p>{props.number}</p>
     </article>
   );
-};
-
-const Image = () => (
-  <img
-    src="https://m.media-amazon.com/images/I/91I1KDnK1kL._SY466_.jpg"
-    alt="book"
-  />
-);
-const Title = () => (
-  <h2>
-    The Let Them Theory: A Life-Changing Tool That Millions of People Can't Stop
-    Talking About
-  </h2>
-);
-const Author = () => {
-  return <h4>Author: Mel Robbins</h4>;
 };
 
 const root = createRoot(document.getElementById("root"));
