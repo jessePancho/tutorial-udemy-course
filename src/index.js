@@ -6,18 +6,18 @@ import "./index.css";
 const author = "Jordan Moore";
 const title = "Interesting Facts for curious Minds";
 const img = "/images/book-cover.jpg";
-
-const someFunc = (param1, param2) => {
-  console.log(param1, param2);
+const firstbook = {
+  author: "Robert Greene",
+  title: "48 laws of power",
+  img: "/images/book-cover.jpg",
 };
-
-someFunc("job", "illegal");
 
 const BookList = () => {
   return (
     <section className="booklist">
       <Book author={author} title={title} img={img} />
       <Book author={author} title={title} img={img} />
+      <SecondBook />
     </section>
   );
 };
@@ -36,6 +36,15 @@ const Book = (props) => {
   );
 };
 
+const SecondBook = () => {
+  return (
+    <article className="book">
+      <img src={firstbook.img} alt={firstbook.title} />
+      <h2>{firstbook.title}</h2>
+      <h4>{firstbook.author}</h4>
+    </article>
+  );
+};
 const root = createRoot(document.getElementById("root"));
 
 root.render(<BookList />);
